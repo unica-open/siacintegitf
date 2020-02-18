@@ -1,0 +1,12 @@
+------------------------
+SIAC INTEG Server Itf
+------------------------
+
+TODO
+-------
+
+Funzionalità rilasciate
+--------------------------
+
+build 11/01/2018 versione 3.1.0
+ SIAC-5761
