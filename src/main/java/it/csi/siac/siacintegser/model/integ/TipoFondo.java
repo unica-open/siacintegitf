@@ -10,12 +10,13 @@ import it.csi.siac.siacintegser.model.base.EntitaCodificataBase;
 
 @XmlType(namespace = INTEGDataDictionary.NAMESPACE)
 public class TipoFondo extends EntitaCodificataBase {
+	public TipoFondo() {
+		super();
+	}
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -3070479273055253291L;
-	
-	
 
 }

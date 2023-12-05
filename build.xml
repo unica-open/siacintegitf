@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!--
 SPDX-FileCopyrightText: Copyright 2020 | CSI Piemonte
 SPDX-License-Identifier: EUPL-1.2
@@ -25,7 +26,7 @@ SPDX-License-Identifier: EUPL-1.2
 	<!-- -->
 	<target name="load-dependencies" description="carica le dipendenze tramite ivy" depends="resolve-dependencies">
 		<tstamp />
-		<ivy:retrieve pattern="${build.lib}/[conf]/[artifact].[ext]" conf="runtime,provided" />
+		<ivy:retrieve pattern="${build.lib}/[conf]/[artifact].[ext]" conf="provided" />
 	</target>
 
 	<!-- -->
@@ -35,7 +36,7 @@ SPDX-License-Identifier: EUPL-1.2
 	<!-- -->
 	<target name="load-local-dependencies" description="carica le dipendenze tramite ivy" depends="resolve-dependencies">
 		<tstamp />
-		<ivy:retrieve pattern="${local.lib}/[conf]/[artifact].[ext]" conf="runtime,provided,test,src" />
+		<ivy:retrieve pattern="${local.lib}/[conf]/[artifact].[ext]" conf="provided,test" />
 	</target>
 
 	<!-- -->
@@ -104,22 +105,15 @@ SPDX-License-Identifier: EUPL-1.2
 		<loadproperties srcFile="buildfiles/${target}.properties" />
 		<loadproperties srcFile="buildfiles/build.properties" />
 		<!-- -->
-		<property name="dist-target" value="${dist}/${target}" />
-		<property name="archives-target" value="${archives}/${target}" />
-		<property name="temp-target" value="${temp}/${target}" />
-		<property name="conf-target" value="${temp-target}/conf" />
-		<!-- -->
-		<property name="classes" value="${temp-target}/classes" />
-		<!-- -->
-		<!-- -->
-		<property name="manifest-dir" value="${temp-target}/manifests" />
-		<!-- -->
+		<property name="dist-target"      value="${dist}/${target}" />
+		<property name="archives-target"  value="${archives}/${target}" />
+		<property name="temp-target"      value="${temp}/${target}" />
+		<property name="conf-target"      value="${temp-target}/conf" />
+		<property name="classes"          value="${temp-target}/classes" />
+		<property name="manifest-dir"     value="${temp-target}/manifests" />
 		<property name="jar-manifest-dir" value="${manifest-dir}/ear" />
 
 		<path id="class.path">
-			<!-- <fileset dir="${build.lib}/dev" /> -->
-			<fileset dir="${build.lib}/provided" />
-			<fileset dir="${build.lib}/runtime" />
 		</path>
 		
 	</target>
@@ -134,6 +128,8 @@ SPDX-License-Identifier: EUPL-1.2
 		<mkdir dir="${temp-target}" />
 		<mkdir dir="${archives-target}" />
 		<mkdir dir="${classes}" />
+		<mkdir dir="target/build/lib/provided" />
+	    <mkdir dir="target/build/lib/runtime" />
 	</target>
 
 	<!-- -->
@@ -159,18 +155,21 @@ SPDX-License-Identifier: EUPL-1.2
 		<!-- -->
 		<echo message="JAVA_HOME: ${env.JAVA_HOME}"/>
 
-		<javac classpathref="class.path" debug="${flag-debug}" debuglevel="lines,vars,source" 
-			   optimize="${flag-optimize}" destdir="${classes}" listfiles="no"
-			   fork="yes" executable="${env.JAVA_HOME}/bin/javac">
+		<javac classpathref="class.path" debug="${flag-debug}" debuglevel="lines,vars,source"
+				optimize="${flag-optimize}" destdir="${classes}" listfiles="no"
+				fork="yes" executable="${env.JAVA_HOME}/bin/javac">
 			<src path="${src-java}" />
 			<classpath>
 				<pathelement path="${classes}" />
 			</classpath>
 		</javac>
-		<!-- -->
-		<copy todir="${classes}">
-			<fileset dir="${resources}"/>
-		</copy>
+		<!-- os -->
+		<!-- <copy todir="${classes}">
+			<fileset dir="${resources}">
+				<exclude name="DND"/>
+				<exclude name="DO_NOT_DELETE"/>
+			</fileset>
+		</copy> -->
 	</target>
 
 	
@@ -262,29 +261,20 @@ SPDX-License-Identifier: EUPL-1.2
 			basedir="${classes}" manifest="${jar-manifest-dir}/MANIFEST.MF"
 		/>
 			
-			<condition property="move.jar.to.local">
-				<equals arg1="${target}" arg2="local" />
-			</condition>
-			
-			<antcall target="move_jar_to_local" />
-			
-		</target>
-			
-		<target name="move_jar_to_local" if="move.jar.to.local">
-			<echo message="moving ${web-module-name}-${product-version}.jar to ${ivy.local}/${web-module-name}-LOCAL.jar"/>
-
-			<copy tofile="${ivy.local}/${web-module-name}-LOCAL.jar"
-							file="${archives-target}/${web-module-name}-${product-version}.jar" overwrite="true" verbose="true">
-					</copy>
-			<!--
-		  	<move 
-				file="${archives-target}/${web-module-name}-${product-version}.jar" 
-				tofile="${ivy.local}/${web-module-name}-LOCAL.jar"
-				overwrite="yes" >
-			</move> -->
-	    </target>
+		<condition property="copy.jar.to.local">
+			<equals arg1="${copy.jar.to.local}" arg2="yes" />
+		</condition>
+		<antcall target="copy_jar_to_local" />
 		
-			
+	</target>
+		
+	<target name="copy_jar_to_local" if="copy.jar.to.local">
+		<echo message="copia del jar dell'itf nel repository locale di ivy"/>
+		<copy todir="${ivy.local}" file="${archives-target}/${web-module-name}-${product-version}.jar" overwrite="true" verbose="true"></copy>
+		<move file="${ivy.local}/${web-module-name}-${product-version}.jar" tofile="${ivy.local}/${web-module-name}.jar" overwrite="true" verbose="true"></move>
+    </target>
+
+	
 	<!-- -->
 	<!-- ############################################################# -->
 	<!-- # public target: package-all                                # -->

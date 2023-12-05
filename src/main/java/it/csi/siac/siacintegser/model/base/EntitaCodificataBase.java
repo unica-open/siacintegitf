@@ -38,7 +38,6 @@ public abstract class EntitaCodificataBase extends EntitaBase {
 		return codice;
 	}
 
-	@Override
 	public void setCodice(String codice) {
 		this.codice = codice;
 	}

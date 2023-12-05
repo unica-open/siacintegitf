@@ -10,7 +10,14 @@ import it.csi.siac.siacintegser.model.base.EntitaCodificataBase;
 
 @XmlType(namespace = INTEGDataDictionary.NAMESPACE)
 public class Programma extends EntitaCodificataBase {
+	public Programma() {
+		super();
+	}
+
+	public Programma(String classifCode, String classifDesc) {
+		super(classifCode, classifDesc);
+	}
+
 	private static final long serialVersionUID = 7075703597915541129L;
-	
 
 }

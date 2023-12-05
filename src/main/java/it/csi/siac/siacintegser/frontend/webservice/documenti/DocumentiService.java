@@ -19,11 +19,17 @@ import it.csi.siac.siacintegser.frontend.webservice.msg.documenti.ElaboraDocumen
 import it.csi.siac.siacintegser.frontend.webservice.msg.documenti.ElaboraDocumentoResponse;
 import it.csi.siac.siacintegser.frontend.webservice.msg.documenti.LeggiStatoElaborazioneDocumento;
 import it.csi.siac.siacintegser.frontend.webservice.msg.documenti.LeggiStatoElaborazioneDocumentoResponse;
+import it.csi.siac.siacintegser.frontend.webservice.msg.test.Test;
+import it.csi.siac.siacintegser.frontend.webservice.msg.test.TestResponse;
 
 @WebService(targetNamespace = DocumentiSvcDictionary.NAMESPACE, name = "DocumentiService")
 @SOAPBinding(parameterStyle = SOAPBinding.ParameterStyle.BARE)
 @BindingType(javax.xml.ws.soap.SOAPBinding.SOAP12HTTP_BINDING)
 public interface DocumentiService {
+	@WebMethod
+	@WebResult
+	TestResponse test(@WebParam Test request);
+
 	@WebMethod
 	@WebResult
 	ElaboraDocumentoResponse elaboraDocumento(@WebParam ElaboraDocumento request);

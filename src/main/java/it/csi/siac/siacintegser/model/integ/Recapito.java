@@ -75,11 +75,11 @@ public class Recapito extends EntitaBase {
 		return null;
 	}
 
-	@Override
-	public void setCodice(String codice) {
-		// Codice non presente
-	}
-
+//	@Override
+//	public void setCodice(String codice) {
+//		// Codice non presente
+//	}
+//
 	public String getComune() {
 		return comune;
 	}

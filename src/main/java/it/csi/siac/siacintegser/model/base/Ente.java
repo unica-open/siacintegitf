@@ -9,7 +9,7 @@ import javax.xml.bind.annotation.XmlType;
 import it.csi.siac.siacintegser.model.integ.INTEGDataDictionary;
 
 @XmlType(namespace = INTEGDataDictionary.NAMESPACE)
-public class Ente extends EntitaCodificataBase {
+public class Ente extends EntitaCodificataBase { public Ente() { super(); } 
 	private static final long serialVersionUID = -2448117060787663397L;
 
 

@@ -11,6 +11,12 @@ import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
 import javax.xml.ws.BindingType;
 
+import it.csi.siac.siacintegser.frontend.webservice.msg.custom.oopp.ricerca.RicercaDocumentiSpesaOOPP;
+import it.csi.siac.siacintegser.frontend.webservice.msg.custom.oopp.ricerca.RicercaDocumentiSpesaOOPPResponse;
+import it.csi.siac.siacintegser.frontend.webservice.msg.custom.oopp.ricerca.RicercaEstesaMandatiOOPP;
+import it.csi.siac.siacintegser.frontend.webservice.msg.custom.oopp.ricerca.RicercaEstesaMandatiOOPPResponse;
+import it.csi.siac.siacintegser.frontend.webservice.msg.custom.oopp.ricerca.RicercaMovimentiGestioneOOPP;
+import it.csi.siac.siacintegser.frontend.webservice.msg.custom.oopp.ricerca.RicercaMovimentiGestioneOOPPResponse;
 import it.csi.siac.siacintegser.frontend.webservice.msg.documenti.RicercaDocumentoEntrata;
 import it.csi.siac.siacintegser.frontend.webservice.msg.documenti.RicercaDocumentoEntrataResponse;
 import it.csi.siac.siacintegser.frontend.webservice.msg.documenti.RicercaDocumentoSpesa;
@@ -39,11 +45,16 @@ import it.csi.siac.siacintegser.frontend.webservice.msg.ricerche.soggetto.Ricerc
 import it.csi.siac.siacintegser.frontend.webservice.msg.ricerche.soggetto.RicercaDettaglioSoggettiResponse;
 import it.csi.siac.siacintegser.frontend.webservice.msg.ricerche.soggetto.RicercaSinteticaSoggetti;
 import it.csi.siac.siacintegser.frontend.webservice.msg.ricerche.soggetto.RicercaSinteticaSoggettiResponse;
+import it.csi.siac.siacintegser.frontend.webservice.msg.test.Test;
+import it.csi.siac.siacintegser.frontend.webservice.msg.test.TestResponse;
 
 @WebService(targetNamespace = RicercheSvcDictionary.NAMESPACE, name = "RicercaService")
 @SOAPBinding(parameterStyle = SOAPBinding.ParameterStyle.BARE)
 @BindingType(javax.xml.ws.soap.SOAPBinding.SOAP12HTTP_BINDING)
 public interface RicercaService {
+	@WebMethod
+	@WebResult TestResponse test(@WebParam Test request);
+
 	@WebMethod
 	@WebResult RicercaCapitoloUscitaGestioneResponse ricercaCapitoloUscitaGestione(@WebParam RicercaCapitoloUscitaGestione request);
 	
@@ -85,5 +96,14 @@ public interface RicercaService {
 	
 	@WebMethod
 	@WebResult RicercaEstesaOrdinativiSpesaResponse ricercaEstesaOrdinativiSpesa(@WebParam RicercaEstesaOrdinativiSpesa request);
+
+	@WebMethod
+	@WebResult RicercaMovimentiGestioneOOPPResponse ricercaMovimentiGestioneOOPP(@WebParam RicercaMovimentiGestioneOOPP request);
+
+	@WebMethod
+	@WebResult RicercaEstesaMandatiOOPPResponse ricercaEstesaMandatiOOPP(@WebParam RicercaEstesaMandatiOOPP request);
+
+	@WebMethod
+	@WebResult RicercaDocumentiSpesaOOPPResponse ricercaDocumentiSpesaOOPP(@WebParam RicercaDocumentiSpesaOOPP request);
 
 }

@@ -7,6 +7,23 @@ TODO
 
 Funzionalità rilasciate
 --------------------------
+build 30/04/2020 versione 4.5.0
+ open source
+
+build 18/03/2020 versione 4.4.0
+ SIAC-7408
+
+build 28/01/2020 versione 4.3.0
+ allineamento svn
+
+build 18/12/2019 versione 4.2.0
+ SIAC-7218
+
+build 22/10/2018 versione  4.1.0
+ SIAC-7092
+
+build 25/10/2018 versione  4.0.0
+ incremento versione per cambio architetturale
 
 build 11/01/2018 versione 3.1.0
  SIAC-5761

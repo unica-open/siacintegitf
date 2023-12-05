@@ -261,10 +261,10 @@ public class MandatoDiPagamento extends EntitaBase {
 		return null;
 	}
 
-	@Override
-	public void setCodice(String codice) {
-		// TODO Auto-generated method stub
-		
-	}
+//	@Override
+//	public void setCodice(String codice) {
+//		// TODO Auto-generated method stub
+//		
+//	}
 	
 }

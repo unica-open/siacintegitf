@@ -92,10 +92,10 @@ public class Provvedimento extends EntitaBase {
 		return codice;
 	}
 
-	@Override
-	public void setCodice(String codice) {
-		this.codice = codice;
-	}
+//	@Override
+//	public void setCodice(String codice) {
+//		this.codice = codice;
+//	}
 
 	/**
 	 * @return the codiceTipoAtto

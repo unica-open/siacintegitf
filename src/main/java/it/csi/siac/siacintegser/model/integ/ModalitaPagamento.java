@@ -10,13 +10,15 @@ import it.csi.siac.siacintegser.model.base.EntitaCodificataBase;
 
 @XmlType(namespace = INTEGDataDictionary.NAMESPACE)
 public class ModalitaPagamento extends EntitaCodificataBase {
+	public ModalitaPagamento() {
+		super();
+	}
+
 	private static final long serialVersionUID = 7118655033512838539L;
 
 	private String codiceTipoAccredito;
 	private String descrizioneTipoAccredito;
 	private Sede sede;
-
-	
 
 	public String getCodiceTipoAccredito() {
 		return codiceTipoAccredito;
@@ -41,7 +43,5 @@ public class ModalitaPagamento extends EntitaCodificataBase {
 	public void setSede(Sede sede) {
 		this.sede = sede;
 	}
-
-	
 
 }

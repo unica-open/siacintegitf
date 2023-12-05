@@ -10,12 +10,17 @@ import it.csi.siac.siacintegser.model.base.EntitaCodificataBase;
 
 @XmlType(namespace = INTEGDataDictionary.NAMESPACE)
 public class TipoFinanziamento extends EntitaCodificataBase {
+	public TipoFinanziamento() {
+		super();
+	}
+
+	public TipoFinanziamento(String classifCode, String classifDesc) {
+		super(classifCode, classifDesc);
+	}
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -3070479273055253291L;
-	
-	
 
 }

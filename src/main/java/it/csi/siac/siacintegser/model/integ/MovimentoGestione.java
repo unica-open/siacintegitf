@@ -12,6 +12,9 @@ import it.csi.siac.siacintegser.model.base.EntitaCodificataBase;
 
 @XmlType(namespace = INTEGDataDictionary.NAMESPACE)
 public class MovimentoGestione extends EntitaCodificataBase {
+	public MovimentoGestione() {
+		super();
+	}
 
 	/**
 	 * 
@@ -20,7 +23,7 @@ public class MovimentoGestione extends EntitaCodificataBase {
 
 	private Boolean parereFinanziario;
 	private BigDecimal importo;
-	
+
 	private String cig;
 	private String cup;
 	private Integer numeroCapitolo;
@@ -29,8 +32,6 @@ public class MovimentoGestione extends EntitaCodificataBase {
 	private String codiceSoggetto;
 	private Provvedimento provvedimento;
 	private PianoDeiContiFinanziario pdc;
-	
-
 
 	/**
 	 * @return the pdc
@@ -196,6 +197,5 @@ public class MovimentoGestione extends EntitaCodificataBase {
 	public void setProvvedimento(Provvedimento provvedimento) {
 		this.provvedimento = provvedimento;
 	}
-
 
 }

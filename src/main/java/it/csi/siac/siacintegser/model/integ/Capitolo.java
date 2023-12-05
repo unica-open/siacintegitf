@@ -13,13 +13,8 @@ import it.csi.siac.siacintegser.model.base.EntitaBase;
 @XmlType(namespace = INTEGDataDictionary.NAMESPACE)
 public class Capitolo extends EntitaBase {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 5449086744042159841L;
 	
-	private String codice;
-
 	private Integer annoEsercizio;
 	private Integer numeroCapitolo;
 	private Integer numeroArticolo;
@@ -36,55 +31,38 @@ public class Capitolo extends EntitaBase {
 	private TipoFondo tipoFondo;
 	private TipoFinanziamento tipoFinanziamento;
 
-	/**
-	 * @return the titolo
-	 */
+	private Tipologia tipologia;
+	private Macroaggregato macroaggregato;
+	private Categoria categoria;
+	private Cofog cofog;
+	private Missione missione;
+	private Programma programma;
+	
 	public Titolo getTitolo() {
 		return titolo;
 	}
 
-	/**
-	 * @param titolo
-	 *            the titolo to set
-	 */
 	public void setTitolo(Titolo titolo) {
 		this.titolo = titolo;
 	}
 
 
-	/**
-	 * @return the annoEsercizio
-	 */
 	public Integer getAnnoEsercizio() {
 		return annoEsercizio;
 	}
 
-	/**
-	 * @param annoEsercizio
-	 *            the annoEsercizio to set
-	 */
 	public void setAnnoEsercizio(Integer annoEsercizio) {
 		this.annoEsercizio = annoEsercizio;
 	}
 
-	/**
-	 * @return the numeroCapitolo
-	 */
 	public Integer getNumeroCapitolo() {
 		return numeroCapitolo;
 	}
 
-	/**
-	 * @param numeroCapitolo
-	 *            the numeroCapitolo to set
-	 */
 	public void setNumeroCapitolo(Integer numeroCapitolo) {
 		this.numeroCapitolo = numeroCapitolo;
 	}
 
-	/**
-	 * @return the numeroArticolo
-	 */
 	public Integer getNumeroArticolo() {
 		return numeroArticolo;
 	}
@@ -176,14 +154,15 @@ public class Capitolo extends EntitaBase {
 
 	@Override
 	public String getCodice() {
-		return codice = String.format("%d-%d-%d", numeroCapitolo, numeroArticolo, numeroUEB);
+		//return codice = 
+				return String.format("%d-%d-%d", numeroCapitolo, numeroArticolo, numeroUEB);
 	}
 
-	@Override
-	public void setCodice(String codice) {
-		this.codice = codice;
-		
-	}
+	//@Override
+//	public void setCodice(String codice) {
+//		this.codice = codice;
+//		
+//	}
 
 	/**
 	 * @return the descrizioneArticolo
@@ -239,6 +218,54 @@ public class Capitolo extends EntitaBase {
 	 */
 	public void setTipoFinanziamento(TipoFinanziamento tipoFinanziamento) {
 		this.tipoFinanziamento = tipoFinanziamento;
+	}
+
+	public Tipologia getTipologia() {
+		return tipologia;
+	}
+
+	public void setTipologia(Tipologia tipologia) {
+		this.tipologia = tipologia;
+	}
+
+	public Macroaggregato getMacroaggregato() {
+		return macroaggregato;
+	}
+
+	public void setMacroaggregato(Macroaggregato macroaggregato) {
+		this.macroaggregato = macroaggregato;
+	}
+
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+
+	public Cofog getCofog() {
+		return cofog;
+	}
+
+	public void setCofog(Cofog cofog) {
+		this.cofog = cofog;
+	}
+
+	public Missione getMissione() {
+		return missione;
+	}
+
+	public void setMissione(Missione missione) {
+		this.missione = missione;
+	}
+
+	public Programma getProgramma() {
+		return programma;
+	}
+
+	public void setProgramma(Programma programma) {
+		this.programma = programma;
 	}
 
 	

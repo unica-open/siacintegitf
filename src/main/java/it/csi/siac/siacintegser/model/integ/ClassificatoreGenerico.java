@@ -10,8 +10,12 @@ import it.csi.siac.siacintegser.model.base.EntitaCodificataBase;
 
 @XmlType(namespace = INTEGDataDictionary.NAMESPACE)
 public class ClassificatoreGenerico extends EntitaCodificataBase {
+	public ClassificatoreGenerico() {
+		super();
+	}
+
 	private static final long serialVersionUID = 7075703597915541129L;
-	
+
 	private String tipoCodifica;
 
 	public String getTipoCodifica() {

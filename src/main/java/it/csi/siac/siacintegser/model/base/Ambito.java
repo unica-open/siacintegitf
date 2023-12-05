@@ -13,7 +13,7 @@ import it.csi.siac.siacintegser.model.integ.INTEGDataDictionary;
 
 @XmlType(namespace = INTEGDataDictionary.NAMESPACE)
 public enum Ambito {
-	RIC("ricerche"), GES("gestione"), DOC("documenti");
+	X(""), RIC("ricerche"), GES("gestione"), DOC("documenti");
 
 	private static Map<String, Ambito> reverseEnumMap = null;
 
@@ -24,7 +24,7 @@ public enum Ambito {
 			reverseEnumMap.put(elem.getLabel(), elem);
 	}
 
-	Ambito(String label) {
+	Ambito(String label) { 
 		this.label = label;
 	}
 

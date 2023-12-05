@@ -29,6 +29,6 @@ public abstract class EntitaBase implements Serializable {
 
 	public abstract String getCodice();
 
-	public abstract void setCodice(String codice);
+//	public abstract void setCodice(String codice);
 
 }

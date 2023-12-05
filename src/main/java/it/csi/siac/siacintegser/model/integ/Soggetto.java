@@ -158,7 +158,7 @@ public class Soggetto extends EntitaBase {
 		return codice;
 	}
 
-	@Override
+	//@Override
 	public void setCodice(String codice) {
 		this.codice = codice;
 	}

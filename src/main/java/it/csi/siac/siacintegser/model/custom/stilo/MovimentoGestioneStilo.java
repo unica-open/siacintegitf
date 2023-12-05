@@ -56,9 +56,7 @@ public class MovimentoGestioneStilo implements Serializable {
 	private Integer annoCompetenzaSubImpegno;
 	private Integer annoCompetenzaSubAccertamento;
 	private Integer annoCompetenzaModifica;
-	
-	
-	
+
 	private Capitolo capitolo;
 	private Macroaggregato macroaggregato;
 	private PianoDeiContiFinanziario pianoDeiContiFinanziario;
@@ -78,9 +76,37 @@ public class MovimentoGestioneStilo implements Serializable {
 	private String cup;
 	private String cig;
 	private String motivoAssenzaCig;
-	private String codiceSoggetto;
-	private String classeSoggetto;
+//	private String codiceSoggetto;
+//	private String classeSoggetto;
 	
+	//SIAC-7408
+	private String prenotazione;
+	private String prenotazioneLiquidabile;
+	private TipoDebitoSiopeStilo tipoDebitoSiope;
+	private SoggettoStilo soggetto;
+	private ClasseSoggettoStilo classeSoggetto;
+	private ProgettoStilo progetto;
+	//PER LE MODIFICHE 
+	private SoggettoStilo soggettoIniziale;
+	private SoggettoStilo soggettoFinale;
+	private ClasseSoggettoStilo classeSoggettoIniziale;
+	private ClasseSoggettoStilo classseSoggettoFinale;
+	
+	//SIAC-7349 -> SIAC-7783
+	//private ComponenteBilancioStilo componenteBilancio;
+//	/**
+//	 * @return the componenteBilancio
+//	 */
+//	public ComponenteBilancioStilo getComponenteBilancio() {
+//		return componenteBilancio;
+//	}
+//	/**
+//	 * @param componenteBilancio the componenteBilancio to set
+//	 */
+//	public void setComponenteBilancio(ComponenteBilancioStilo componenteBilancio) {
+//		this.componenteBilancio = componenteBilancio;
+//	}
+	//FINE  SIAC-7349 -> SIAC-7783
 	
 	
 	/**
@@ -559,18 +585,18 @@ public class MovimentoGestioneStilo implements Serializable {
 	public String getMotivoAssenzaCig() {
 		return motivoAssenzaCig;
 	}
-	/**
-	 * @return the codiceSoggetto
-	 */
-	public String getCodiceSoggetto() {
-		return codiceSoggetto;
-	}
-	/**
-	 * @return the classeSoggetto
-	 */
-	public String getClasseSoggetto() {
-		return classeSoggetto;
-	}
+//	/**
+//	 * @return the codiceSoggetto
+//	 */
+//	public String getCodiceSoggetto() {
+//		return codiceSoggetto;
+//	}
+//	/**
+//	 * @return the classeSoggetto
+//	 */
+//	public String getClasseSoggetto() {
+//		return classeSoggetto;
+//	}
 	/**
 	 * @param cup the cup to set
 	 */
@@ -589,18 +615,139 @@ public class MovimentoGestioneStilo implements Serializable {
 	public void setMotivoAssenzaCig(String motivoAssenzaCig) {
 		this.motivoAssenzaCig = motivoAssenzaCig;
 	}
+//	/**
+//	 * @param codiceSoggetto the codiceSoggetto to set
+//	 */
+//	public void setCodiceSoggetto(String codiceSoggetto) {
+//		this.codiceSoggetto = codiceSoggetto;
+//	}
+//	/**
+//	 * @param classeSoggetto the classeSoggetto to set
+//	 */
+//	public void setClasseSoggetto(String classeSoggetto) {
+//		this.classeSoggetto = classeSoggetto;
+//	}
 	/**
-	 * @param codiceSoggetto the codiceSoggetto to set
+	 * @return the prenotazione
 	 */
-	public void setCodiceSoggetto(String codiceSoggetto) {
-		this.codiceSoggetto = codiceSoggetto;
+	public String getPrenotazione() {
+		return prenotazione;
+	}
+	/**
+	 * @return the prenotazioneLiquidabile
+	 */
+	public String getPrenotazioneLiquidabile() {
+		return prenotazioneLiquidabile;
+	}
+	/**
+	 * @return the tipoDebitoSiope
+	 */
+	public TipoDebitoSiopeStilo getTipoDebitoSiope() {
+		return tipoDebitoSiope;
+	}
+	/**
+	 * @param prenotazione the prenotazione to set
+	 */
+	public void setPrenotazione(String prenotazione) {
+		this.prenotazione = prenotazione;
+	}
+	/**
+	 * @param prenotazioneLiquidabile the prenotazioneLiquidabile to set
+	 */
+	public void setPrenotazioneLiquidabile(String prenotazioneLiquidabile) {
+		this.prenotazioneLiquidabile = prenotazioneLiquidabile;
+	}
+	/**
+	 * @param tipoDebitoSiope the tipoDebitoSiope to set
+	 */
+	public void setTipoDebitoSiope(TipoDebitoSiopeStilo tipoDebitoSiope) {
+		this.tipoDebitoSiope = tipoDebitoSiope;
+	}
+	/**
+	 * @return the soggetto
+	 */
+	public SoggettoStilo getSoggetto() {
+		return soggetto;
+	}
+	/**
+	 * @return the classeSoggetto
+	 */
+	public ClasseSoggettoStilo getClasseSoggetto() {
+		return classeSoggetto;
+	}
+	/**
+	 * @return the progetto
+	 */
+	public ProgettoStilo getProgetto() {
+		return progetto;
+	}
+	/**
+	 * @return the soggettoIniziale
+	 */
+	public SoggettoStilo getSoggettoIniziale() {
+		return soggettoIniziale;
+	}
+	/**
+	 * @return the soggettoFinale
+	 */
+	public SoggettoStilo getSoggettoFinale() {
+		return soggettoFinale;
+	}
+	/**
+	 * @return the classeSoggettoIniziale
+	 */
+	public ClasseSoggettoStilo getClasseSoggettoIniziale() {
+		return classeSoggettoIniziale;
+	}
+	/**
+	 * @return the classseSoggettoFinale
+	 */
+	public ClasseSoggettoStilo getClassseSoggettoFinale() {
+		return classseSoggettoFinale;
+	}
+	/**
+	 * @param soggetto the soggetto to set
+	 */
+	public void setSoggetto(SoggettoStilo soggetto) {
+		this.soggetto = soggetto;
 	}
 	/**
 	 * @param classeSoggetto the classeSoggetto to set
 	 */
-	public void setClasseSoggetto(String classeSoggetto) {
+	public void setClasseSoggetto(ClasseSoggettoStilo classeSoggetto) {
 		this.classeSoggetto = classeSoggetto;
 	}
+	/**
+	 * @param progetto the progetto to set
+	 */
+	public void setProgetto(ProgettoStilo progetto) {
+		this.progetto = progetto;
+	}
+	/**
+	 * @param soggettoIniziale the soggettoIniziale to set
+	 */
+	public void setSoggettoIniziale(SoggettoStilo soggettoIniziale) {
+		this.soggettoIniziale = soggettoIniziale;
+	}
+	/**
+	 * @param soggettoFinale the soggettoFinale to set
+	 */
+	public void setSoggettoFinale(SoggettoStilo soggettoFinale) {
+		this.soggettoFinale = soggettoFinale;
+	}
+	/**
+	 * @param classeSoggettoIniziale the classeSoggettoIniziale to set
+	 */
+	public void setClasseSoggettoIniziale(ClasseSoggettoStilo classeSoggettoIniziale) {
+		this.classeSoggettoIniziale = classeSoggettoIniziale;
+	}
+	/**
+	 * @param classseSoggettoFinale the classseSoggettoFinale to set
+	 */
+	public void setClassseSoggettoFinale(ClasseSoggettoStilo classseSoggettoFinale) {
+		this.classseSoggettoFinale = classseSoggettoFinale;
+	}
+	
 
 
 }

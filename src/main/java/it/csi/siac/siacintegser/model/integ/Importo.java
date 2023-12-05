@@ -38,7 +38,7 @@ public class Importo extends EntitaBase {
 		return codice;
 	}
 
-	@Override
+	//@Override
 	public void setCodice(String codice) {
 		this.codice = codice;
 		

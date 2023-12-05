@@ -4,14 +4,20 @@
 */
 package it.csi.siac.siacintegser.model.integ;
 
-
 import javax.xml.bind.annotation.XmlType;
 
 import it.csi.siac.siacintegser.model.base.EntitaCodificataBase;
 
 @XmlType(namespace = INTEGDataDictionary.NAMESPACE)
 public class Macroaggregato extends EntitaCodificataBase {
+	public Macroaggregato() {
+		super();
+	}
+
+	public Macroaggregato(String classifCode, String classifDesc) {
+		super(classifCode, classifDesc);
+	}
+
 	private static final long serialVersionUID = 7075703597915541129L;
-	
 
 }

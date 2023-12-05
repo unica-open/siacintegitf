@@ -10,26 +10,10 @@ import it.csi.siac.siacintegser.model.integ.INTEGDataDictionary;
 
 @XmlType(namespace = INTEGDataDictionary.NAMESPACE)
 public class Stato extends EntitaCodificataBase {
+	public Stato() {
+		super();
+	}
+
 	private static final long serialVersionUID = 7075703597915541129L;
 
-	
-	private String codice;
-
-
-	/**
-	 * @return the codice
-	 */
-	public String getCodice() {
-		return codice;
-	}
-
-
-	/**
-	 * @param codice the codice to set
-	 */
-	public void setCodice(String codice) {
-		this.codice = codice;
-	}
-	
-	
 }
